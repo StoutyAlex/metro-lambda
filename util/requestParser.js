@@ -10,8 +10,6 @@ const types = {
 
 module.exports = request => {
   const station = get(request, 'station', null);
-  const type = get(request, 'type', null);
-
   const error = [];
 
   let method = types.default;
@@ -20,9 +18,8 @@ module.exports = request => {
     error.push('No station property defined');
   }
 
-  console.log(featureToggles.types);
-
   if (featureToggles.types) {
+    const type = get(request, 'type', null);
     if (!type) {
       error.push('No Type property defined');
     }
