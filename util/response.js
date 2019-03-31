@@ -1,16 +1,24 @@
 
 module.exports = {
   send: (callback, data) => callback(null, {
-    success: true,
-    data,
+    statusCode: 200,
+    isBase64Encoded: false,
+    body: JSON.stringify({
+      success: true,
+      data,
+    }),
   }),
-  error: (callback, error) => {
-    if (!error) {
-      error = 'Unexpected error occurred.';
+  error: (callback, err, code=500) => {
+    if (!err || err == {}) {
+      err = 'Unexpected error occurred.';
     }
     callback(null, {
-      success: false,
-      error,
-  })
+      statusCode: code,
+      isBase64Encoded: false,
+      body: JSON.stringify({
+        success: false,
+        error: err,
+      }),
+    });
   },
 };
