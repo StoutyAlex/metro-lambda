@@ -8,8 +8,19 @@ const types = {
   test: async (station) => station,
 }
 
+const stationParse = request => {
+  let station;
+  station = get(request, 'body.station', null);
+
+  console.log(request);
+  if (!station) {
+    station = get(request, 'queryStringParameters.station', null);
+  }
+  return station;
+};
+
 module.exports = request => {
-  const station = get(request, 'station', null);
+  const station = stationParse(request);
   const error = [];
 
   let method = types.default;
