@@ -5,7 +5,7 @@ module.exports = (data, stationName) => {
   );
 
   if (result.length === 0) {
-    throw new Error('No Station Exists');
+    throw `No Station Exists with the name: ${stationName}`;
   }
   
   return result;
