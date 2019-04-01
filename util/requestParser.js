@@ -8,6 +8,11 @@ const types = {
   test: async (station) => station,
 }
 
+const edgeCaseStops = new Set([
+  'ashton-under-lyne',
+  'deansgate-castlefield'
+]);
+
 const stationParse = request => {
   let station;
 
@@ -19,10 +24,16 @@ const stationParse = request => {
 
   if (!station) {
     station = get(request, 'queryStringParameters.station', null);
-  } else {
-    station = station.replace('-', ' ');
   }
 
+  if (station) {
+    if (!edgeCaseStops.has(station)) {
+      station = station.replace('-', ' ');
+    } else if (station == 'deansgate-castlefield') {
+      station = 'deansgate - castlefield';
+    }
+  }
+  
   return station;
 };
 
