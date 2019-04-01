@@ -10,12 +10,19 @@ const types = {
 
 const stationParse = request => {
   let station;
+
+  if (get(request, 'body', null)) {
+    request.body = JSON.parse(request.body);
+  }
+
   station = get(request, 'body.station', null);
 
-  console.log(request);
   if (!station) {
     station = get(request, 'queryStringParameters.station', null);
+  } else {
+    station = station.replace('-', ' ');
   }
+
   return station;
 };
 
