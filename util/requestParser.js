@@ -73,7 +73,8 @@ module.exports = request => {
     method = get(types, type, null);
     if(!method) {
       const validTypes = Object.keys(types).slice(1, types.length).join(', ');
-      error.push(`Type ${type} is not a valid type... valid types are:${validTypes}`);
+      error.push(`Type ${type} is not a valid type... valid types are: ${validTypes}`);
+    }
   }
 
   if (error.length !== 0) {
