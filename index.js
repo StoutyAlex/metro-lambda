@@ -7,6 +7,7 @@ exports.handler = async (event, context, callback) => {
     const { station, method } = requestParser(event);
     send(callback, await method(station));
   } catch (err) {
+    console.log(err);
     error(callback, err);
   }
 };
