@@ -13,6 +13,7 @@ const edgeCaseStops = new Set([
   'deansgate-castlefield',
   'st-peters-square',
   'besses-o-th-barn',
+  'st-werburghs-road',
 ]);
 
 const stationParse = request => {
@@ -37,6 +38,8 @@ const stationParse = request => {
       station = 'st peter\'s square';
     } else if (station == 'besses-o-th-barn') {
       station = "Besses O\u2019 Th\u2019 Barn";
+    } else if (station == 'st-werburghs-road') {
+      station = "St Werburgh\u2019s Road";
     }
   }
   
