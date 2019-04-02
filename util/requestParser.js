@@ -5,7 +5,7 @@ const featureToggles = require('../util/featureToggles');
 const types = {
   default: metrolink.groupedStation,
   grouped: metrolink.groupedStation,
-  test: async (station) => station,
+  seperated: metrolink.seperateStation,
 }
 
 const edgeCaseStops = new Set([
@@ -46,6 +46,18 @@ const stationParse = request => {
   return station;
 };
 
+const typeParse = (request) => {
+  let type;
+
+  type = get(request, 'body.type', null);
+
+  if (!type) {
+    type = get(request, 'queryStringParameters.type', null);
+  }
+
+  return type;
+}
+
 module.exports = request => {
   const station = stationParse(request);
   const error = [];
@@ -56,17 +68,12 @@ module.exports = request => {
     error.push('No station property defined');
   }
 
-  if (featureToggles.types) {
-    const type = get(request, 'type', null);
-    if (!type) {
-      error.push('No Type property defined');
-    }
-
+  const type = typeParse(request);
+  if (type) {
     method = get(types, type, null);
-    
     if(!method) {
-      error.push('Type is not valid');
-    }
+      const validTypes = Object.keys(types).slice(1, types.length).join(', ');
+      error.push(`Type ${type} is not a valid type... valid types are:${validTypes}`);
   }
 
   if (error.length !== 0) {
