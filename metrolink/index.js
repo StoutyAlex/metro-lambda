@@ -10,6 +10,12 @@ const groupedStation = (stationName) => getData()
   .then(data => getWaitTimes(data))
   .then(data => getGrouped(data));
 
+const seperateStation = (stationName) => getData()
+  .then(data => getStation(data.data.value, stationName))
+  .then(data => getSide(data))
+  .then(data => getWaitTimes(data));
+
 module.exports = {
   groupedStation,
+  seperateStation,
 };
