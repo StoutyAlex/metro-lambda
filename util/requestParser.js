@@ -10,7 +10,8 @@ const types = {
 
 const edgeCaseStops = new Set([
   'ashton-under-lyne',
-  'deansgate-castlefield'
+  'deansgate-castlefield',
+  'st-peters-square',
 ]);
 
 const stationParse = request => {
@@ -31,6 +32,8 @@ const stationParse = request => {
       station = station.replace('-', ' ');
     } else if (station == 'deansgate-castlefield') {
       station = 'deansgate - castlefield';
+    } else if (station == 'st-peters-square') {
+      station = 'st peter\'s square';
     }
   }
   
