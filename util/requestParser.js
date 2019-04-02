@@ -30,7 +30,7 @@ const stationParse = request => {
 
   if (station) {
     if (!edgeCaseStops.has(station)) {
-      station = station.replace('-', ' ');
+      station = station.replace(/\-/g, ' ');
     } else if (station == 'deansgate-castlefield') {
       station = 'deansgate - castlefield';
     } else if (station == 'st-peters-square') {
