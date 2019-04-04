@@ -6,6 +6,8 @@ module.exports = (data, stationName) => {
 
   if (result.length === 0) {
     throw `No Station Exists with the name: ${stationName}`;
+  } else {
+    result.messageBoard = result[0].MessageBoard;
   }
   
   return result;

@@ -10,6 +10,7 @@ module.exports = (station) => {
 
   return {
     incoming,
-    outgoing
+    outgoing,
+    messageBoard: station.messageBoard,
   }
 };
