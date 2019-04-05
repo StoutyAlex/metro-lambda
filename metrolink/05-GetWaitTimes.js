@@ -7,21 +7,24 @@ const getWaitTimes = (incomingOrOutgoing) => {
       if ( !tram.Dest0 ) return; 
       waitTimes.push({
         destination: tram.Dest0,
-        wait: tram.Wait0
+        wait: tram.Wait0,
+        carriages: tram.Carriages0,
       });
     }
     if(!_.find(waitTimes, {'destination': tram.Dest1, 'wait': tram.Wait1 })) {
       if ( !tram.Dest1 ) return; 
       waitTimes.push({
         destination: tram.Dest1,
-        wait: tram.Wait1
+        wait: tram.Wait1,
+        carriages: tram.Carriages1,
       });
     }
     if(!_.find(waitTimes, {'destination': tram.Dest2, 'wait': tram.Wait2 })) {
       if ( !tram.Dest2 ) return; 
       waitTimes.push({
         destination: tram.Dest2,
-        wait: tram.Wait2
+        wait: tram.Wait2,
+        carriages: tram.Carriages2,
       });
     }
   });
