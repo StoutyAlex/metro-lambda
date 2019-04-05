@@ -24,5 +24,6 @@ module.exports = (data) => {
     outgoing: getGrouped(data.outgoing),
     incoming: getGrouped(data.incoming),
     messageBoard: data.messageBoard,
+    ...data.metadata,
   }
 };

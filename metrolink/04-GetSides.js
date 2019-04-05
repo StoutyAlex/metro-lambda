@@ -12,5 +12,6 @@ module.exports = (station) => {
     incoming,
     outgoing,
     messageBoard: station.messageBoard,
+    metadata: station.metadata,
   }
 };

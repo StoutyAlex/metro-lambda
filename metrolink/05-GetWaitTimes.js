@@ -32,4 +32,5 @@ module.exports = (incomingAndOutgoing) => ({
   outgoing: getWaitTimes(incomingAndOutgoing.outgoing),
   incoming: getWaitTimes(incomingAndOutgoing.incoming),
   messageBoard: incomingAndOutgoing.messageBoard,
+  metadata: incomingAndOutgoing.metadata,
 });
