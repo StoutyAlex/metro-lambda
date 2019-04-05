@@ -1,4 +1,3 @@
-require('dotenv').config();
 const { send, error } = require('./util/response');
 const requestParser = require('./util/requestParser');
 
