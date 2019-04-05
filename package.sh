@@ -1,1 +1,1 @@
-zip -r package.zip node_modules metrolink index.js package.json util
+zip -r package.zip node_modules metrolink index.js package.json util data
