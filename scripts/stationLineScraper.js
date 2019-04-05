@@ -19,7 +19,7 @@ const run = async () => {
   const { value } = data.data;
 
   value.forEach((stop) => {
-    stationLines[_.camelCase(stop.StationLocation)] = stop.Line;
+    stationLines[_.camelCase(stop.StationLocation)] = _.camelCase(stop.Line);
   });
   
   fs.writeFileSync('./data/stationLines.json', JSON.stringify(stationLines, null, 2));
