@@ -33,9 +33,9 @@ const stationParse = request => {
     if (!edgeCaseStops.has(station)) {
       station = station.replace(/\-/g, ' ');
     } else if (station == 'deansgate-castlefield') {
-      station = 'deansgate - castlefield';
+      station = 'Deansgate - Castlefield';
     } else if (station == 'st-peters-square') {
-      station = 'st peter\'s square';
+      station = 'St Peter\'s Square';
     } else if (station == 'besses-o-th-barn') {
       station = "Besses O\u2019 Th\u2019 Barn";
     } else if (station == 'st-werburghs-road') {
